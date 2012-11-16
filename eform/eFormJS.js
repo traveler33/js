@@ -253,24 +253,30 @@ function GetAllControlPositionAndLabelText(ControlListID, LabelListID) {
     var objLabelList = GetDivObject(LabelListID);
     objControlIst.value = '';
     objLabelList.value = '';
-    for (i = 0; i < ArrayclientID.length; i++) {
+   
+for (i = 0; i < ArrayclientID.length; i++) {
         var ID = ArrayclientID[i];
 
-        var obj = GetDivObject(ID);
+	//        var obj = GetDivObject(ID);
+	var obj =document.getElementById( ID ); 
         if (obj.style != null && obj.style != 'undefined') {
             var sLeft = obj.style.left;
             var sTop = obj.style.top;
             objControlIst.value = objControlIst.value + ";" + ID + "," + sLeft + "," + sTop;
+	    //alert(objControlIst.value);
         }
 
     }
-    objControlIst.value = objControlIst.value + ";";
+	  objControlIst.value = objControlIst.value + ";";
     // alert(ArrayLabelID.length); 
     for (i = 0; i < ArrayLabelID.length; i++) {
         var LabelID = ArrayLabelID[i];
-        // alert( LabelID);
-        var objLabel = GetDivObject(LabelID);
-        if (objLabel != null) {
+      //  alert( LabelID);
+      //  var objLabel = GetDivObject(LabelID);
+
+	var objLabel = document.getElementById( LabelID ); 
+
+       if (objLabel != null) {
 
 
             var sText = objLabel.innerHTML;
@@ -281,8 +287,8 @@ function GetAllControlPositionAndLabelText(ControlListID, LabelListID) {
 
     }
     objLabelList.value = objLabelList.value + ";";
-    // alert( objControlIst.value);
-
+  
+   // alert( objLabelList.value );
 }
 
 //******************* drag and drop *****************************
